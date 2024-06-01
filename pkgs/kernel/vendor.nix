@@ -23,7 +23,7 @@
     owner = "HeroBrine1st";
     repo = "linux-orangepi";
     rev = "c5e715c2104981ee2161fdc5beac5f1ec1b0d12d";
-    hash = "sha256-tVu/3SF/+s+Z6ytKvuY+ZwqsXUlm40yOZ/O5kfNfUYc=";
+    hash = "";
   };
 
 
