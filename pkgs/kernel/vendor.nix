@@ -11,6 +11,8 @@
   fetchFromGitHub,
   linuxManualConfig,
   ubootTools,
+  writeText,
+  lib,
   ...
 }:
 (linuxManualConfig rec {
@@ -37,6 +39,11 @@
   #  6. copy the generated .config to ./pkgs/kernel/rk35xx_vendor_config and commit it.
   # 
   config = import ./rk35xx_vendor_config.nix;
+  configfile = writeText "config" (
+    lib.concatStringsSep "\n" (
+      lib.mapAttrsToList (k: v: "${k}=${v}") config
+    )
+  );
   allowImportFromDerivation = true;
 })
 .overrideAttrs (old: {
