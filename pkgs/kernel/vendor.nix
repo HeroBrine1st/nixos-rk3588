@@ -39,11 +39,7 @@
   #  6. copy the generated .config to ./pkgs/kernel/rk35xx_vendor_config and commit it.
   # 
   config = import ./rk35xx_vendor_config.nix;
-  configfile = writeText "config" (
-    lib.concatStringsSep "\n" (
-      lib.mapAttrsToList (k: v: "${k}=${v}") config
-    )
-  );
+  configfile = ./rk35xx_vendor_config;
   allowImportFromDerivation = true;
 })
 .overrideAttrs (old: {
