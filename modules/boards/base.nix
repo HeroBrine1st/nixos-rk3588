@@ -77,7 +77,7 @@
     hardware = {
       # driver & firmware for Mali-G610 GPU
       # it works on all rk2588/rk3588s based SBCs.
-      opengl.package =
+      graphics.package =
         (
           (pkgs.mesa.override {
             galliumDrivers = ["panfrost" "swrast"];
@@ -93,8 +93,7 @@
               hash = "sha256-4eZHMiYS+sRDHNBtLZTA8ELZnLns7yT3USU5YQswxQ0=";
             };
           })
-        )
-        .drivers;
+        );
 
       enableRedistributableFirmware = lib.mkForce true;
       firmware = lib.mkIf config.hardware.mali.enableFirmware [
