@@ -41,6 +41,7 @@
   config = import ./rk35xx_vendor_config.nix;
   configfile = ./rk35xx_vendor_config;
   allowImportFromDerivation = true;
+  features = { efiBootStub = true; };
 })
 .overrideAttrs (old: {
   name = "k"; # dodge uboot length limits
